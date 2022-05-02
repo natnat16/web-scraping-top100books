@@ -24,7 +24,7 @@ results = soup.select(selector=".cmp-text")
 # filtering results: choosing only the items that contain the books data like so,
 # option 1:
     # for each item get the first ocurrence of <p> if it starts with a number (list is numbered)
-books = [item.select_one(selector="p").getText() for item in results if re.match('.?\d',item.select_one(selector="p").getText())]
+books = [item.select_one(selector="p").getText() for item in results if re.match('.?\d+\.',item.select_one(selector="p").getText())]
 # # option 2:
 #   # for each item get the first ocurrence of <p> if it contains an <a> tag under <b> that is under <p>
 # books = [item.select_one(selector="p").getText() for item in results if item.select_one(selector="p b a")!=None]
